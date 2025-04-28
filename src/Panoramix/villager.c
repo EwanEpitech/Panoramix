@@ -7,8 +7,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "villager.h"
-#include "utils.h"
+#include "Panoramix/villager.h"
+#include "Utils/utils.h"
 
 void *villager_thread(void *arg)
 {

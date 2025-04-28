@@ -8,7 +8,7 @@
 #ifndef VILLAGER_H
 #define VILLAGER_H
 
-#include "panoramix.h"
+#include "Panoramix/panoramix.h"
 
 void *villager_thread(void *arg);
 

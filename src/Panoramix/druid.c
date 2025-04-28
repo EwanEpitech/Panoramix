@@ -7,8 +7,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "druid.h"
-#include "utils.h"
+#include "Panoramix/druid.h"
+#include "Utils/utils.h"
 
 void *druid_thread(void *potion)
 {

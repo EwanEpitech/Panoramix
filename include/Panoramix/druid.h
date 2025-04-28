@@ -8,7 +8,7 @@
 #ifndef DRUID_H
 #define DRUID_H
 
-#include "panoramix.h"
+#include "Panoramix/panoramix.h"
 
 void *druid_thread(void *arg);
 

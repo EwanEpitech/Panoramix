@@ -8,7 +8,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include "panoramix.h"
+#include "Panoramix/panoramix.h"
 
 void print_villager_start(int id);
 void print_villager_drink(int id, int servings);

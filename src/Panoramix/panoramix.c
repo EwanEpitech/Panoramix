@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "panoramix.h"
+#include "Panoramix/panoramix.h"
 
 int parse_args(int ac, char **av, args_t *args)
 {

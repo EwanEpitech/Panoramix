@@ -8,9 +8,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "panoramix.h"
-#include "druid.h"
-#include "villager.h"
+#include "Panoramix/panoramix.h"
+#include "Panoramix/druid.h"
+#include "Panoramix/villager.h"
 
 int main(int ac, char **av)
 {

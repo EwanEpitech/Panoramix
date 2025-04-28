@@ -8,7 +8,11 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iinclude -pthread
 NAME = panoramix
-SRC = src/main.c src/panoramix.c src/druid.c src/villager.c src/utils.c
+SRC =	src/main.c 					\
+		src/Panoramix/panoramix.c	\
+		src/Panoramix/druid.c 		\
+		src/Panoramix/villager.c 	\
+		src/Utils/utils.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

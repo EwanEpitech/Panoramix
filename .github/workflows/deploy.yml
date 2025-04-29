@@ -98,8 +98,22 @@ jobs:
       - name: Format workflow conclusion
         id: conclusion
         run: |
+          MIRROR_STATUS="${{ needs.is_repo_a_mirror.result }}"
+          CODING_STYLE_STATUS="${{ needs.check_coding_style.result }}"
           BUILD_STATUS="${{ needs.build.result }}"
           DEPLOY_STATUS="${{ needs.deploy.result }}"
+
+          if [ "$MIRROR_STATUS" == "failure" ]; then
+            MIRROR_STATUS="❌ Failed"
+          else
+            MIRROR_STATUS="✅ Success"
+          fi
+
+          if [ "$CODING_STYLE_STATUS" == "failure" ]; then
+            CODING_STYLE_STATUS="❌ Failed"
+          else
+            CODING_STYLE_STATUS="✅ Success"
+          fi
 
           if [ "$BUILD_STATUS" == "failure" ]; then
             BUILD_STATUS="❌ Failed"
@@ -113,7 +127,7 @@ jobs:
             DEPLOY_STATUS="✅ Success"
           fi
 
-          if [ "$BUILD_STATUS" == "❌ Failed" ] || [ "$DEPLOY_STATUS" == "❌ Failed" ]; then
+          if [ "$MIRROR_STATUS" == "❌ Failed" ] || [ "$CODING_STYLE_STATUS" == "❌ Failed" ] || [ "$BUILD_STATUS" == "❌ Failed" ] || [ "$DEPLOY_STATUS" == "❌ Failed" ]; then
             EMBED_COLOR="15158332"
             WORKFLOW_STATUS="❌ Failed"
           else
@@ -121,6 +135,8 @@ jobs:
             WORKFLOW_STATUS="✅ Success"
           fi
 
+          echo "mirror_status=${MIRROR_STATUS}" >> $GITHUB_ENV
+          echo "coding_style_status=${CODING_STYLE_STATUS}" >> $GITHUB_ENV
           echo "build_status=${BUILD_STATUS}" >> $GITHUB_ENV
           echo "deploy_status=${DEPLOY_STATUS}" >> $GITHUB_ENV
           echo "workflow_status=${WORKFLOW_STATUS}" >> $GITHUB_ENV
@@ -139,6 +155,8 @@ jobs:
           embed-title: "Workflow Report - ${{ env.PROJECT_NAME }}"
           embed-description: |
             **Workflow Status**: `${{ env.workflow_status }}`
+            **Mirror Check**: `${{ env.mirror_status }}`
+            **Coding Style**: `${{ env.coding_style_status }}`
             **Build**: `${{ env.build_status }}`
             **Deployment**: `${{ env.deploy_status }}`
 
@@ -167,6 +185,8 @@ jobs:
             Workflow Report - ${{ env.PROJECT_NAME }}
 
             Workflow Status: ${{ env.workflow_status }}
+            Mirror Check: ${{ env.mirror_status }}
+            Coding Style: ${{ env.coding_style_status }}
             Build: ${{ env.build_status }}
             Deployment: ${{ env.deploy_status }}
 

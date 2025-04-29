@@ -12,7 +12,8 @@ SRC =	src/main.c 					\
 		src/Panoramix/panoramix.c	\
 		src/Panoramix/druid.c 		\
 		src/Panoramix/villager.c 	\
-		src/Utils/utils.c
+		src/Utils/druid_utils.c 	\
+		src/Utils/villager_utils.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

@@ -26,11 +26,11 @@ typedef struct args_s {
     int nb_fights;
     int nb_refills;
     potion_t *pot;
-} args_t;
+} villager_t;
 
 void *villager_thread(void *arg);
 void *druid_thread(void *potion);
 
-int parse_args(int ac, char **av, args_t *args);
+int parse_args(int ac, char **av, villager_t *args);
 
 #endif

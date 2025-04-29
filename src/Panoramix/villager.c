@@ -15,7 +15,7 @@ void *villager_thread(void *arg)
     static int id = 0;
     static pthread_mutex_t id_mutex = PTHREAD_MUTEX_INITIALIZER;
     int my_id;
-    args_t *args = (args_t *)arg;
+    villager_t *args = (villager_t *)arg;
     int fights_left = args->nb_fights;
 
     pthread_mutex_lock(&id_mutex);

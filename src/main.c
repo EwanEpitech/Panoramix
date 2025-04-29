@@ -28,7 +28,8 @@ static int init_resources(villager_t *args, pthread_t **villagers)
     return 0;
 }
 
-static int create_threads(villager_t *args, pthread_t *druid, pthread_t *villagers)
+static int create_threads(villager_t *args, pthread_t *druid,
+    pthread_t *villagers)
 {
     if (pthread_create(druid, NULL, druid_thread, args->pot) != 0) {
         pthread_mutex_destroy(&args->pot->mutex);

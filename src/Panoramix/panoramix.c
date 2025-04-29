@@ -26,7 +26,7 @@ static void fill_villagers(char **av, villager_t *args)
 
 static bool fill_pot(villager_t *args)
 {
-    args->pot = malloc(sizeof(potion_t));;
+    args->pot = malloc(sizeof(potion_t));
     if (!args->pot)
         return false;
     args->pot->servings = args->pot_size;

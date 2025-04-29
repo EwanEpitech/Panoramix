@@ -6,11 +6,10 @@
 */
 
 #ifndef PANORAMIX_H
-#define PANORAMIX_H
-
-#include <pthread.h>
-#include <semaphore.h>
-#include <stdbool.h>
+    #include <pthread.h>
+    #include <semaphore.h>
+    #include <stdbool.h>
+    #define PANORAMIX_H
 
 typedef struct potion_s {
     int servings;

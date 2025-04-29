@@ -72,6 +72,8 @@ int main(int ac, char **av)
     if (create_threads(&args, &druid, villagers) != 0)
         return 84;
     for (int i = 0; i < args.nb_villagers; i++)
+        pthread_cancel(villagers[i]);
+    for (int i = 0; i < args.nb_villagers; i++)
         pthread_join(villagers[i], NULL);
     pthread_cancel(druid);
     pthread_join(druid, NULL);

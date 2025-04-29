@@ -6,11 +6,10 @@
 */
 
 #ifndef PANORAMIX_H
-#define PANORAMIX_H
-
-#include <pthread.h>
-#include <semaphore.h>
-#include <stdbool.h>
+    #include <pthread.h>
+    #include <semaphore.h>
+    #include <stdbool.h>
+    #define PANORAMIX_H
 
 typedef struct potion_s {
     int servings;
@@ -26,11 +25,11 @@ typedef struct args_s {
     int nb_fights;
     int nb_refills;
     potion_t *pot;
-} args_t;
+} villager_t;
 
 void *villager_thread(void *arg);
 void *druid_thread(void *potion);
 
-int parse_args(int ac, char **av, args_t *args);
+int parse_args(int ac, char **av, villager_t *args);
 
 #endif

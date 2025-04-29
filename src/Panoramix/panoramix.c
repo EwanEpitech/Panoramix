@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "Panoramix/panoramix.h"
 
-int parse_args(int ac, char **av, args_t *args)
+int parse_args(int ac, char **av, villager_t *args)
 {
     if (ac != 5) {
         fprintf(stderr, "USAGE: ./panoramix <nb_villagers> <pot_size> <nb_fights> <nb_refills>\n");

@@ -14,7 +14,7 @@
 
 int main(int ac, char **av)
 {
-    args_t args;
+    villager_t args;
     pthread_t druid;
     pthread_t *villagers;
     int i;

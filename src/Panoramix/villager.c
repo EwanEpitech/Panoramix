@@ -23,7 +23,7 @@ static int get_villager_id(void)
 
     pthread_mutex_lock(&id_mutex);
     my_id = id;
-    id = id + 1;
+    id++;
     pthread_mutex_unlock(&id_mutex);
     return my_id;
 }

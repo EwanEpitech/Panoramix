@@ -11,6 +11,10 @@
 #include "Panoramix/villager.h"
 #include "Utils/utils.h"
 
+/**
+ * @brief Get the villager id by locking the mutex and incrementing the id
+ * @return The id of the villager
+ */
 static int get_villager_id(void)
 {
     static int id = 0;
@@ -24,6 +28,11 @@ static int get_villager_id(void)
     return my_id;
 }
 
+/**
+ * @brief Handle the empty pot by calling the druid && posting to the semaphore
+ * @param my_id The id of the villager
+ * @param args Pointer to the villagers structure
+ */
 static void handle_empty_pot(int my_id, villager_t *args)
 {
     if (args->pot->refills_left > 0) {
@@ -32,6 +41,12 @@ static void handle_empty_pot(int my_id, villager_t *args)
     }
 }
 
+/**
+ * @brief Handle the drink by decrementing the servings and printing drink log
+ * @param my_id The id of the villager
+ * @param args Pointer to the villagers structure
+ * @param fights_left Pointer to the number of fights left
+ */
 static void handle_drink(int my_id, villager_t *args, int *fights_left)
 {
     print_villager_drink(my_id, args->pot->servings);
@@ -39,6 +54,12 @@ static void handle_drink(int my_id, villager_t *args, int *fights_left)
     print_villager_fight(my_id, --(*fights_left));
 }
 
+/**
+ * @brief Process the pot by checking if it's empty and handling the drink
+ * @param my_id The id of the villager
+ * @param args Pointer to the villagers structure
+ * @param fights_left Pointer to the number of fights left
+ */
 static bool process_pot(int my_id, villager_t *args, int *fights_left)
 {
     if (args->pot->servings == 0) {
@@ -49,6 +70,14 @@ static bool process_pot(int my_id, villager_t *args, int *fights_left)
     return false;
 }
 
+/**
+ * @brief Thread function for the villagers
+ * The villagers will try to drink from the pot,
+ * If the pot is empty, they will call the druid
+ * If the pot is not empty, they will drink and fight
+ * @param arg Pointer to the villagers structure
+ * @return NULL
+ */
 void *villager_thread(void *arg)
 {
     villager_t *args = (villager_t *)arg;

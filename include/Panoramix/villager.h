@@ -9,6 +9,11 @@
     #include "Panoramix/panoramix.h"
     #define VILLAGER_H
 
+/**
+ * @brief Thread function for the villagers
+ * @param arg Pointer to the villagers structure
+ * @return NULL
+ */
 void *villager_thread(void *arg);
 
 #endif

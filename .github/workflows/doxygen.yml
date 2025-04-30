@@ -12,18 +12,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Install Doxygen
-        run: sudo apt-get update && sudo apt-get install -y doxygen
-
-      - name: Generate Doxygen documentation
-        run: doxygen Doxyfile
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./docs/html
+          github_token: ${{ secrets.PRIVATE_TOKEN }}
+          branch: gh-pages
+          folder: html
+          config_file: Doxyfile

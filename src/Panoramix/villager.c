@@ -23,7 +23,7 @@ static int get_villager_id(void)
 
     pthread_mutex_lock(&id_mutex);
     my_id = id;
-    id++;
+    id = id + 1;
     pthread_mutex_unlock(&id_mutex);
     return my_id;
 }
@@ -71,6 +71,30 @@ static bool process_pot(int my_id, villager_t *args, int *fights_left)
 }
 
 /**
+ * @brief Process the pot by checking if it's empty and handling the drink
+ * @param my_id The id of the villager
+ * @param args Pointer to the villagers structure
+ * @param fights_left Pointer to the number of fights left
+ */
+static void villager_loop(int my_id, villager_t *args, int *fights_left)
+{
+    while (*fights_left > 0) {
+        pthread_mutex_lock(&args->pot->mutex);
+        if (args->pot->servings == 0 && args->pot->refills_left == 0) {
+            pthread_mutex_unlock(&args->pot->mutex);
+            break;
+        }
+        if (process_pot(my_id, args, fights_left)) {
+            pthread_mutex_unlock(&args->pot->mutex);
+            usleep(1000);
+            continue;
+        }
+        pthread_mutex_unlock(&args->pot->mutex);
+        usleep(1000);
+    }
+}
+
+/**
  * @brief Thread function for the villagers
  * The villagers will try to drink from the pot,
  * If the pot is empty, they will call the druid
@@ -85,20 +109,7 @@ void *villager_thread(void *arg)
     int fights_left = args->nb_fights;
 
     print_villager_start(my_id);
-    while (fights_left > 0) {
-        pthread_mutex_lock(&args->pot->mutex);
-        if (args->pot->servings == 0 && args->pot->refills_left == 0) {
-            pthread_mutex_unlock(&args->pot->mutex);
-            break;
-        }
-        if (process_pot(my_id, args, &fights_left)) {
-            pthread_mutex_unlock(&args->pot->mutex);
-            usleep(1000);
-            continue;
-        }
-        pthread_mutex_unlock(&args->pot->mutex);
-        usleep(1000);
-    }
+    villager_loop(my_id, args, &fights_left);
     print_villager_sleep(my_id);
     return NULL;
 }

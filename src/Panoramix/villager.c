@@ -77,7 +77,7 @@ static bool process_pot(int my_id, villager_t *args, int *fights_left)
  * If the pot is not empty, they will drink and fight
  * @param arg Pointer to the villagers structure
  * @return NULL
- */int
+ */
 void *villager_thread(void *arg)
 {
     villager_t *args = (villager_t *)arg;

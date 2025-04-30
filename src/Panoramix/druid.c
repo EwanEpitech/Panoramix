@@ -10,6 +10,12 @@
 #include "Panoramix/druid.h"
 #include "Utils/utils.h"
 
+/**
+ * @brief Thread function for the druid,
+ * While there are refills left, the druid will refill the pot
+ * @param potion Pointer to the potion structure
+ * @return NULL
+ */
 void *druid_thread(void *potion)
 {
     potion_t *pot = (potion_t *)potion;

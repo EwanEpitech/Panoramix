@@ -83,7 +83,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.ref }}
+          ref: ${{ github.event.pull_request.head.ref || github.ref }}
       - name: Install Doxygen
         run: sudo apt-get install doxygen graphviz -y
       - name: Generate documentation
@@ -96,7 +96,11 @@ jobs:
           git config --global user.email "actions@github.com"
           git add html/
           git commit -m "chore(docs): update documentation"
-          git push origin HEAD:${{ github.ref }}
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "Skipping push for pull request"
+          else
+            git push origin HEAD:${{ github.ref }}
+          fi
 
   deploy:
     runs-on: ubuntu-latest

@@ -71,9 +71,28 @@ jobs:
       - name: Build
         run: make
 
+  documentation:
+    needs: [is_repo_a_mirror]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Doxygen
+        run: sudo apt-get install doxygen graphviz -y
+      - name: Generate documentation
+        run: |
+          rm -rf html
+          doxygen Doxyfile
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./html
+          publish_branch: gh-pages
+
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, documentation]
     if: ${{ github.repository != 'git@github.com:EpitechPromo2028/B-CCP-400-LIL-4-1-panoramix-ewan.tirlemont.git' }}
     steps:
       - name: Checkout repository
@@ -88,7 +107,7 @@ jobs:
 
   discord_and_email_report:
     runs-on: ubuntu-latest
-    needs: [is_repo_a_mirror, check_coding_style, build, deploy]
+    needs: [is_repo_a_mirror, check_coding_style, build, documentation, deploy]
     if: always()
     steps:
       - name: Checkout repository
@@ -101,6 +120,7 @@ jobs:
           MIRROR_STATUS="${{ needs.is_repo_a_mirror.result }}"
           CODING_STYLE_STATUS="${{ needs.check_coding_style.result }}"
           BUILD_STATUS="${{ needs.build.result }}"
+          DOCUMENTATION_STATUS="${{ needs.documentation.result }}"
           DEPLOY_STATUS="${{ needs.deploy.result }}"
 
           if [ "$MIRROR_STATUS" == "failure" ]; then
@@ -121,13 +141,19 @@ jobs:
             BUILD_STATUS="✅ Success"
           fi
 
+          if [ "$DOCUMENTATION_STATUS" == "failure" ]; then
+            DOCUMENTATION_STATUS="❌ Failed"
+          else
+            DOCUMENTATION_STATUS="✅ Success"
+          fi
+
           if [ "$DEPLOY_STATUS" == "failure" ]; then
             DEPLOY_STATUS="❌ Failed"
           else
             DEPLOY_STATUS="✅ Success"
           fi
 
-          if [ "$MIRROR_STATUS" == "❌ Failed" ] || [ "$CODING_STYLE_STATUS" == "❌ Failed" ] || [ "$BUILD_STATUS" == "❌ Failed" ] || [ "$DEPLOY_STATUS" == "❌ Failed" ]; then
+          if [ "$MIRROR_STATUS" == "❌ Failed" ] || [ "$CODING_STYLE_STATUS" == "❌ Failed" ] || [ "$BUILD_STATUS" == "❌ Failed" ] || [ "$DOCUMENTATION_STATUS" == "❌ Failed" ] || [ "$DEPLOY_STATUS" == "❌ Failed" ]; then
             EMBED_COLOR="15158332"
             WORKFLOW_STATUS="❌ Failed"
           else
@@ -138,6 +164,7 @@ jobs:
           echo "mirror_status=${MIRROR_STATUS}" >> $GITHUB_ENV
           echo "coding_style_status=${CODING_STYLE_STATUS}" >> $GITHUB_ENV
           echo "build_status=${BUILD_STATUS}" >> $GITHUB_ENV
+          echo "documentation_status=${DOCUMENTATION_STATUS}" >> $GITHUB_ENV
           echo "deploy_status=${DEPLOY_STATUS}" >> $GITHUB_ENV
           echo "workflow_status=${WORKFLOW_STATUS}" >> $GITHUB_ENV
           echo "embed_color=${EMBED_COLOR}" >> $GITHUB_ENV
@@ -158,6 +185,7 @@ jobs:
             **Mirror Check**: `${{ env.mirror_status }}`
             **Coding Style**: `${{ env.coding_style_status }}`
             **Build**: `${{ env.build_status }}`
+            **Documentation**: `${{ env.documentation_status }}`
             **Deployment**: `${{ env.deploy_status }}`
 
             **Branch**: `${{ env.PUSH_BRANCH }}`
@@ -188,6 +216,7 @@ jobs:
             Mirror Check: ${{ env.mirror_status }}
             Coding Style: ${{ env.coding_style_status }}
             Build: ${{ env.build_status }}
+            Documentation: ${{ env.documentation_status }}
             Deployment: ${{ env.deploy_status }}
 
             Branch: ${{ env.PUSH_BRANCH }}

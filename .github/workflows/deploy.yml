@@ -74,9 +74,13 @@ jobs:
   documentation:
     needs: [is_repo_a_mirror]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Doxygen
         run: sudo apt-get install doxygen graphviz -y
       - name: Generate documentation

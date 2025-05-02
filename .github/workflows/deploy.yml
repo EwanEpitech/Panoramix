@@ -40,6 +40,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.1.1
+      - name: Remove html directory
+        run: rm -rf html
       - name: Check coding style runner launching
         run: check.sh $(pwd) $(pwd)
       - name: verify coding style

@@ -1,0 +1,25 @@
+<map id="include/Panoramix/panoramix.h" name="include/Panoramix/panoramix.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="257,5,485,31"/>
+<area shape="rect" id="Node000002" href="$druid_8h.html" title=" " alt="" coords="53,79,244,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="324,37,186,81,184,76,322,32"/>
+<area shape="rect" id="Node000004" href="$main_8c.html" title=" " alt="" coords="5,159,95,185"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="244,28,181,35,122,46,73,61,55,70,43,80,34,99,34,120,47,158,41,160,29,121,29,98,39,77,52,66,71,56,121,41,181,30,243,23"/>
+<area shape="rect" id="Node000005" href="$villager_8h.html" title=" " alt="" coords="268,79,475,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="374,44,374,79,369,79,369,44"/>
+<area shape="rect" id="Node000007" href="$utils_8h.html" title=" " alt="" coords="499,79,646,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="418,33,541,76,539,81,416,38"/>
+<area shape="rect" id="Node000010" href="$panoramix_8c.html" title=" " alt="" coords="671,79,869,104"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="449,30,706,76,705,81,448,36"/>
+<area shape="rect" id="Node000003" href="$druid_8c.html" title=" " alt="" coords="119,159,282,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="166,114,195,158,191,161,162,117"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="125,115,66,161,63,157,122,111"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="301,109,108,155,84,162,82,157,107,149,300,104"/>
+<area shape="rect" id="Node000006" href="$villager_8c.html" title=" " alt="" coords="307,159,484,185"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="381,117,394,158,389,160,376,118"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="506,109,255,162,254,157,505,104"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="536,112,422,162,420,157,533,107"/>
+<area shape="rect" id="Node000008" href="$druid__utils_8c.html" title=" " alt="" coords="661,159,820,185"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="611,107,717,157,715,162,608,112"/>
+<area shape="rect" id="Node000009" href="$villager__utils_8c.html" title=" " alt="" coords="509,152,637,192"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="575,118,575,152,570,152,570,118"/>
+</map>

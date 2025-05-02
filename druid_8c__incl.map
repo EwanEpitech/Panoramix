@@ -1,0 +1,20 @@
+<map id="src/Panoramix/druid.c" name="src/Panoramix/druid.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="117,5,280,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,33,78,75,76,71,172,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,79,171,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,33,155,70,151,67,186,29"/>
+<area shape="rect" id="Node000004" href="$druid_8h.html" title=" " alt="" coords="195,79,335,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="212,29,247,67,243,70,208,33"/>
+<area shape="rect" id="Node000009" href="$utils_8h.html" title=" " alt="" coords="360,79,456,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="233,28,362,72,360,77,231,33"/>
+<area shape="rect" id="Node000005" href="$panoramix_8h.html" title=" " alt="" coords="247,152,425,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="279,102,317,140,313,144,275,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="174,225,258,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="318,180,249,220,246,216,315,175"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="283,225,389,251"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="339,178,339,212,333,212,333,178"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="413,225,496,251"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="356,175,425,216,422,220,354,180"/>
+<area shape="poly" id="edge9_Node000009_Node000005" title=" " alt="" coords="398,106,359,144,356,140,394,102"/>
+</map>

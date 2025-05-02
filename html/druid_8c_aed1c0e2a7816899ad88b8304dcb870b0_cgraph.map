@@ -1,0 +1,9 @@
+<map id="druid_thread" name="druid_thread">
+<area shape="rect" id="Node000001" title="Thread function for the druid, While there are refills left, the druid will refill the pot." alt="" coords="5,55,109,80"/>
+<area shape="rect" id="Node000002" href="$druid__utils_8c.html#a23ea0fcbab7af1153caa97043dbd80fe" title="Print the refill message for the druid." alt="" coords="161,5,289,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,52,167,32,168,37,102,57"/>
+<area shape="rect" id="Node000003" href="$druid__utils_8c.html#ac6489812b1156121c730c795ca6288e1" title="Print the sleep message for the druid." alt="" coords="157,55,292,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,65,144,65,144,70,109,70"/>
+<area shape="rect" id="Node000004" href="$druid__utils_8c.html#a700a8c468a9a0d2202d2838c443fd133" title="Print the start message for the druid." alt="" coords="160,104,289,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="102,77,168,97,167,102,100,83"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="print_druid_sleep" name="print_druid_sleep">
+<area shape="rect" id="Node000001" title="Print the sleep message for the druid." alt="" coords="157,5,292,31"/>
+<area shape="rect" id="Node000002" href="$druid_8c.html#aed1c0e2a7816899ad88b8304dcb870b0" title="Thread function for the druid, While there are refills left, the druid will refill the pot." alt="" coords="5,5,109,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,21,109,21,109,15,144,15"/>
+</map>

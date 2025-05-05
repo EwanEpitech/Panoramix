@@ -85,9 +85,9 @@ static void cleanup_resources(villager_t *args, pthread_t *villagers)
  */
 int main(int ac, char **av)
 {
-    villager_t args;
-    pthread_t druid;
-    pthread_t *villagers;
+    villager_t args = {0};
+    pthread_t druid = 0;
+    pthread_t *villagers = NULL;
 
     if (!parse_args(ac, av, &args))
         return 84;

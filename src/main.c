@@ -82,6 +82,10 @@ static void cleanup_resources(villager_t *args, pthread_t *villagers)
  * @param ac Number of arguments
  * @param av Array of arguments
  * @return 0 on success, 84 on failure
+ * Dont use cancel -> instead of -> use a sem post with the number of
+ * alived villagers
+ * When the druid receive the sem post, he will stop the thread bcp
+ * no one is waiting for him / everyone is sleeping
  */
 int main(int ac, char **av)
 {

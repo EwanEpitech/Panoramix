@@ -80,10 +80,6 @@ static void villager_loop(int my_id, villager_t *args, int *fights_left)
 {
     while (*fights_left > 0) {
         pthread_mutex_lock(&args->pot->mutex);
-        if (args->pot->servings == 0 && args->pot->refills_left == 0) {
-            pthread_mutex_unlock(&args->pot->mutex);
-            break;
-        }
         if (process_pot(my_id, args, fights_left)) {
             pthread_mutex_unlock(&args->pot->mutex);
             usleep(1000);

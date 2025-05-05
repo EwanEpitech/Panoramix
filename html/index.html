@@ -72,7 +72,62 @@ $(function() {
   <div class="headertitle"><div class="title">Panoramix </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Description</h1>
+<p>Panoramix est un projet qui simule le comportement d'un druide et de villageois dans un village gaulois. Le druide est responsable de la préparation d'une potion magique, tandis que les villageois viennent la boire pour se battre.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Prérequis</h1>
+<ul>
+<li>Un système d'exploitation Linux</li>
+<li>GCC (GNU Compiler Collection)</li>
+<li>Make</li>
+<li>Doxygen (pour la documentation)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Installation</h1>
+<ol type="1">
+<li>Clonez le repository : <div class="fragment"><div class="line">git clone https://github.com/EwanEpitech/Panoramix.git</div>
+<div class="line">cd Panoramix</div>
+</div><!-- fragment --></li>
+<li>Compilez le projet : <div class="fragment"><div class="line">make</div>
+</div><!-- fragment --></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Utilisation</h1>
+<p>Le programme prend 4 arguments en ligne de commande : </p><div class="fragment"><div class="line">./panoramix &lt;nb_villagers&gt; &lt;pot_size&gt; &lt;nb_fights&gt; &lt;nb_refills&gt;</div>
+</div><!-- fragment --><p>Où :</p><ul>
+<li><code>nb_villagers</code> : Nombre de villageois dans le village</li>
+<li><code>pot_size</code> : Taille maximale de la potion</li>
+<li><code>nb_fights</code> : Nombre de combats que chaque villageois doit faire</li>
+<li><code>nb_refills</code> : Nombre de fois que le druide peut remplir la potion</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Exemple</h2>
+<div class="fragment"><div class="line">./panoramix 3 5 3 1</div>
+</div><!-- fragment --><p> Ceci créera :</p><ul>
+<li>3 villageois</li>
+<li>Une potion de taille 5</li>
+<li>Chaque villageois fera 3 combats</li>
+<li>Le druide pourra remplir la potion 1 fois</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Documentation</h1>
+<p>La documentation complète du code est disponible dans le dossier <code>html/</code>. Vous pouvez la consulter en ouvrant <code>html/index.html</code> dans votre navigateur.</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Fonctionnement</h1>
+<ol type="1">
+<li>Le druide commence à préparer la potion</li>
+<li>Les villageois arrivent un par un pour boire la potion</li>
+<li>Quand la potion est vide, le druide la remplit (s'il lui reste des remplissages)</li>
+<li>Les villageois continuent de boire jusqu'à ce qu'ils aient fait tous leurs combats</li>
+<li>Le programme se termine quand tous les villageois ont terminé leurs combats</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Auteurs</h1>
+<ul>
+<li>Ewan Tirlemont </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

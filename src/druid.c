@@ -10,6 +10,15 @@
 #include "druid.h"
 #include "utils.h"
 
+/**
+ * @brief Entry point for the druid thread responsible for refilling the potion pot.
+ *
+ * Waits for refill requests, refills the pot with a fixed number of servings, and decrements the number of refills left.
+ * Continues until no refills remain, then signals that the druid is going to sleep.
+ *
+ * @param potion Pointer to a potion_t structure containing shared state for synchronization and refill tracking.
+ * @return Always returns NULL upon thread completion.
+ */
 void *druid_thread(void *potion)
 {
     potion_t *pot = (potion_t *)potion;

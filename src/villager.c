@@ -10,6 +10,14 @@
 #include "villager.h"
 #include "utils.h"
 
+/**
+ * @brief Thread routine for a villager managing its fight and drink cycle.
+ *
+ * Assigns a unique ID to the villager, then repeatedly attempts to drink from a shared pot and fight until the required number of fights is completed or the pot is exhausted with no refills left. Coordinates with other threads using mutexes and semaphores to ensure safe access to shared resources and to signal for pot refills when needed.
+ *
+ * @param arg Pointer to an `args_t` structure containing the villager's configuration and shared pot reference.
+ * @return Always returns NULL.
+ */
 void *villager_thread(void *arg)
 {
     static int id = 0;

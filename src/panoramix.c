@@ -9,6 +9,17 @@
 #include <stdlib.h>
 #include "panoramix.h"
 
+/**
+ * @brief Parses and validates command-line arguments for the program.
+ *
+ * Expects exactly four arguments: number of villagers, pot size, number of fights, and number of refills.
+ * On success, populates the provided args structure with parsed values and allocates a potion_t structure.
+ *
+ * @param ac Argument count.
+ * @param av Argument vector.
+ * @param args Pointer to the args_t structure to populate.
+ * @return 0 on success, or 84 on error (invalid arguments or memory allocation failure).
+ */
 int parse_args(int ac, char **av, args_t *args)
 {
     if (ac != 5) {

@@ -12,6 +12,15 @@
 #include "druid.h"
 #include "villager.h"
 
+/**
+ * @brief Entry point for the multithreaded druid and villagers simulation.
+ *
+ * Parses command-line arguments, initializes shared resources and synchronization primitives, creates and manages druid and villager threads, and performs cleanup upon completion or error.
+ *
+ * @param ac Argument count.
+ * @param av Argument vector.
+ * @return int Returns 0 on success, or 84 on failure.
+ */
 int main(int ac, char **av)
 {
     args_t args;

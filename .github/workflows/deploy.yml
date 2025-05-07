@@ -29,7 +29,6 @@ jobs:
           if [[ "${GITHUB_REPOSITORY}" == "${REPO_URL_WITHOUT_DOT_GIT}" ]]; then
             echo "is_mirror=true" >> $GITHUB_ENV
             echo "Error: This repository is a mirror"
-            exit 1
           else
             echo "is_mirror=false" >> $GITHUB_ENV
             echo "This repository is not a mirror"
@@ -44,6 +43,7 @@ jobs:
             git rm -rf html/
             git commit -m "style(documentation): remove html to handle coding style errors"
             git push
+            exit 1
           fi
 
   check_coding_style:
